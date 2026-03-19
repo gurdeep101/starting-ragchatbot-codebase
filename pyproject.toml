@@ -16,3 +16,12 @@ dependencies = [
     "torch==2.2.2",
     "numpy<2.0",
 ]
+
+[dependency-groups]
+dev = [
+    "black>=24.0.0",
+]
+
+[tool.black]
+line-length = 88
+target-version = ["py312"]
