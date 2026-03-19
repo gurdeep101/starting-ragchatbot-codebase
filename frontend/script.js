@@ -34,6 +34,18 @@ function setupEventListeners() {
     const newChatBtn = document.getElementById('newChatBtn');
     if (newChatBtn) newChatBtn.addEventListener('click', createNewSession);
 
+    // Sidebar toggle
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebar = document.getElementById('sidebar');
+    if (sidebarToggle && sidebar) {
+        sidebarToggle.addEventListener('click', () => {
+            const isExpanded = sidebarToggle.getAttribute('aria-expanded') === 'true';
+            sidebarToggle.setAttribute('aria-expanded', String(!isExpanded));
+            sidebarToggle.setAttribute('aria-label', isExpanded ? 'Show sidebar' : 'Hide sidebar');
+            sidebar.classList.toggle('sidebar-collapsed', isExpanded);
+        });
+    }
+
     // Suggested questions
     document.querySelectorAll('.suggested-item').forEach(button => {
         button.addEventListener('click', (e) => {
